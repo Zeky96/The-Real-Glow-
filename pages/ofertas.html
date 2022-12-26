@@ -1,88 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Ofertas - The Real Glow</title>
-        <link rel="stylesheet" href="/assets/css/style.css">
-        <link rel="shortcut icon" href="/assets/img/logo.png" type="image/x-icon">
-    </head>
-    <body class="main-color" >
-        <nav class="navss">
-            <a href="/index.html"> <img class="logo"  src="/assets/img/logo.png" alt="logo"></a>
-            <ul class="nav">  
-                <li><a href="/index.html">Inicio</a></li>
-                <li><a href="/pages/productos.html">Productos</a></li>
-                <li><a href="/pages/crear-cuenta.html">Crear Cuenta</a></li>
-                <li><a href="/pages/nosotros.html">Nosotros</a></li>
-            </ul>  
-        </nav>
-      <header class="headerofertas">
-        <div class="header-ofertas-info">
-            <h1><span>OFERTAS</span></h1>  
-        </div>         
-      </header> 
-      <br>
-      <br>  
-      <main>
-        <section class="tarjetas"> 
-            <div class="tarjeta">
-                <img src="/assets/img/bolsitas.jpg" alt="kit">
-                <div class="tarjeta-info">
-                  <h2>Kit 2X1</h2>
-                  <br>
-                  <p>Llevate 2<strong> Shampoos</strong> variados para tu<strong> cabello</strong> al precio de <strong><em>UNO!</em></strong> </p>
-                  <button class="btn-product">Comprar</button>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ofertas - The Real Glow</title>
+    <link rel="shortcut icon" href="/assets/img/logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body class="main-color">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/index.html"><img class="logo" src="/assets/img/logo.png" alt="logo"></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/index.html">Inicio</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/pages/productos.html" >Productos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./crear-cuenta.html">Crear cuenta</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./nosotros.html">Nosotros</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+    </nav>
+    <header>
+        <div class="bg-image" data-aos="zoom-in" data-aos-duration="2000"  >
+            <img src="/assets/img/headerofertas.webp" class="w-100" />
+            <div class="mask" style="background-color: rgba(0, 0, 0, 0.6)"></div>
+        </div>
+        <h1 class="col-xs-12 col-md-12 pt-4 ps-2 d-flex justify-content-center" data-aos="slide-up" ><em>OFERTAS</em> </h1>
+    </header>
+    <main>
+        <div class="row row-cols-1 row-cols-md-3 row-cols-xl-4 g-3">
+            <div class="col" data-aos="fade-right">
+              <div class="card">
+                <img src="/assets/img/bolsitas.jpg" class="img- fluid card-img-top" alt="kit2x1"/>
+                <div class="card-body">
+                  <h5 class="card-title">Kit 2X1</h5>
+                  <p class="card-text">Llevate 2<strong> Shampoos</strong> variados para tu<strong> cabello</strong> al precio de <strong><em>UNO!</em></strong> </p>
+                  <a href="#" class="btn btn-primary px-2">Comprar</a>
                 </div>
+              </div>
             </div>
-            <div class="tarjeta">
-                <img src="/assets/img/shampooserum.jpg" alt="shampooserum">
-                <div class="tarjeta-info">
-                  <h2>Shampoo+Serum</h2>
-                  <br>
-                  <p>El <strong>Shampoo</strong> que vos quieras para tu <strong>cabello</strong> más un Serum <strong><em>GRATIS!</em> </strong> </p>
-                  <button class="btn-product">Comprar</button>
+            <div class="col" data-aos="fade-down">
+              <div class="card">
+                <img src="/assets/img/bolsitas.jpg" class="card-img-top" alt="serum"/>
+                <div class="card-body">
+                  <h5 class="card-title">Shampoo + Serum</h5>
+                  <p class="card-text">El <strong>Shampoo</strong> que vos quieras para tu <strong>cabello</strong> más un Serum <strong><em>GRATIS!</em> </strong> </p>
+                  <a href="#" class="btn btn-primary px-2">Comprar</a>
                 </div>
+              </div>
             </div>
-        </section>
-        <section class="tarjeta-ofertas">
-             <div class="tarjeta">
-                <img src="/assets/img/shampoojabonera.jpg" alt="shampoojabonera">
-                <div class="tarjeta-info">
-                  <h2>Shampoo+Jabonera</h2>
-                  <br>
-                  <p>El <strong> Shampoo</strong> que vos quieras para tu <strong>cabello</strong> más una Jabonera <strong><em>GRATIS!</em> </strong> </p>
-                  <button class="boton-product">Comprar</button>
+            <div class="col" data-aos="fade-up">
+              <div class="card">
+                <img src="/assets/img/bolsitas.jpg" class="card-img-top" alt="shampoojabonera"/>
+                <div class="card-body">
+                  <h5 class="card-title">Shampoo + Jabonera</h5>
+                  <p class="card-text">El <strong> Shampoo</strong> que vos quieras para tu <strong>cabello</strong> más una Jabonera <strong><em>GRATIS!</em> </strong> </p>
+                  <a href="#" class="btn btn-primary px-2">Comprar</a>
                 </div>
+              </div>
             </div>
-        </section>
-            
+        </div> 
     </main>
+    <footer class="text-center text-white" style="background-color: #FFEEE3;">
+        <div class="container pt-4">
+          <!--Redes Sociales-->
+          <section class="mb-4">
+            <!-- Facebook -->
+            <a
+              class="btn btn-link btn-floating btn-lg text-dark m-1"
+              href="#!"
+              role="button"
+              data-mdb-ripple-color="dark"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
       
-      <aside>
-
-      </aside>
-
-      <footer class="footerindex">
-        <div class="footer-info">
-            <h3> <strong>THE REAL GLOW</strong>, Todos los Derechos Reservados. </h3>
-    </div iconosindex> 
-        <div>
-        <div class="pagos">
-            <h3>MEDIOS DE PAGO</h3>
-            <img src="/assets/img/visaicon.webp"visa">
-            <img src="/assets/img/mastercardicon .png" alt="master">
-            <img src="/assets/img/americanexlogo.png" alt="americanex">
+            <!-- Twitter -->
+            <a
+              class="btn btn-link btn-floating btn-lg text-dark m-1"
+              href="#!"
+              role="button"
+              data-mdb-ripple-color="dark"
+              ><i class="fab fa-twitter"></i
+            ></a>
+      
+            <!-- Google -->
+            <a
+              class="btn btn-link btn-floating btn-lg text-dark m-1"
+              href="#!"
+              role="button"
+              data-mdb-ripple-color="dark"
+              ><i class="fab fa-google"></i
+            ></a>
+      
+            <!-- Instagram -->
+            <a
+              class="btn btn-link btn-floating btn-lg text-dark m-1"
+              href="#!"
+              role="button"
+              data-mdb-ripple-color="dark"
+              ><i class="fab fa-instagram"></i
+            ></a>
+      
+            <!-- Linkedin -->
+            <a
+              class="btn btn-link btn-floating btn-lg text-dark m-1"
+              href="#!"
+              role="button"
+              data-mdb-ripple-color="dark"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+            <!-- Github -->
+            <a
+              class="btn btn-link btn-floating btn-lg text-dark m-1"
+              href="#!"
+              role="button"
+              data-mdb-ripple-color="dark"
+              ><i class="fab fa-github"></i
+            ></a>
+          </section>
         </div>
-        <div class="redessociales">
-            <h3>REDES SOCIALES</h3>
-            <img src="/assets/img/whatsappicon.png" alt="logowsp">
-            <img src="/assets/img/instaicon.png" alt="instaicon">
+        <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);"> © 2022 Copyright:
+          <a class="text-dark text-decoration-none" href="./index.html">The Real Glow</a>
         </div>
-    </div>
-    <br>
+    </footer>
+
    
-</footer>
-    </body>
+  
+    
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>  
+    <script>
+        AOS.init({
+            easing: 'ease-out-back',
+            duration: 1500
+        });
+    </script>   
+</body>
 </html>
