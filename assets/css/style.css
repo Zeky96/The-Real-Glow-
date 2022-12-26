@@ -53,6 +53,11 @@ body{
     display: flex;
     justify-content: space-between;
 }
+/*/Formulario BS/*/
+.formulario{
+    width: 600px;
+    margin:  20px auto;
+}
 .navss ul{
    list-style-type: none;
    display: flex;
