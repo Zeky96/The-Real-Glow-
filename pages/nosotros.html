@@ -5,82 +5,132 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nosotros - The Real Glow</title>
-    <link rel="stylesheet" href="/assets/css/style.css">
-    <link rel="shortcut icon" href="/assets/img/logo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="/assets/img/logo.png" type="blank">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body class="main-color">
-    <nav class="navss">
-        <a href="/index.html"> <img class="logo"  src="/assets/img/logo.png" alt="logo"></a>
-        <ul class="nav">  
-            <li><a href="/index.html">Inicio</a></li>
-            <li><a href="/pages/productos.html">Productos</a></li>
-            <li><a href="/pages/ofertas.html">Ofertas</a></li>
-            <li><a href="/pages/crear-cuenta.html">Crear Cuenta</a></li>
-            
-        </ul>  
-    </nav>
-<header class="headernosotros">
-    <div class="header-nosotros-info">
-        <h1>NOSOTROS</h1>
-    </div>           
-</header>
 
-<main>
-    <div class="quienes-somos">
-        <div>
-            <div class="quienes-somos-1"> 
-                <p> Somos una familia buscando vivir en armonía con nuestro medio ambiente y nuestra propia biología.</p>
-            </div>
-        <br>
-        <hr>
-        <br>
-            <div class="quienes-somos-2">
-                <p>Creemos que <strong>The <em>Real</em> Glow</strong>  solo lo obtenemos tomado los elementos que nos proporciona nuestra naturaleza.</p>
-            </div>
-        <br>
-        <hr>
-        <br>
-            <div class="quienes-somos-3">
-                <h2>Te invitamos a que vos también disfrutes de encontrar <strong>YOUR <em> REAL </em> GLOW</strong></h2>
-            </div>
-            <br>
-            <hr>
-            <br>
-            <br>
-            <br>
-              <button class="boton-nosotros"><a href="/index.html">Mira que opinan de nosotros nuestros clientes</a></button>
-        </div> 
-        
-        <div class="quienes-somos-imagen">
-                <img src="/assets/img/imagenlogo.jpg" alt="LogoTheRealGlow">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a data-aos="slide-right" class="navbar-brand" href="../index.html"><img class="logo" src="../assets/img/logo.png" alt="logo"></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="../index.html">Inicio</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./productos.html" >Productos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./ofertas.html">Ofertas</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./crear-cuenta.html">Crear Cuenta</a>
+              </li>
+            </ul>
+          </div>
         </div>
-    </div>
+    </nav>
+    <header>
+        <div class="bg-image" data-aos="zoom-in" data-aos-duration="2000"  >
+            <img src="../assets/img/headernosotros.jpg" class="w-100" />
+            <div class="mask" style="background-color: rgba(0, 0, 0, 0.6)"></div>
+        </div>
+        <h1 class="col-12 col-md-12 pt-4 ps-2 d-flex justify-content-center" data-aos="slide-up" ><em>NOSOTROS</em> </h1>
+    </header> 
+    <main>
+        <div class="container ">
+            <div>
+                <p class="h5 p-2" data-aos="fade-right">Somos una familia buscando vivir en armonía con nuestro medio ambiente y nuestra propia biología.</p>
+            </div>
+            <div>
+                <p class="h5 p-2" data-aos="fade-left">Creemos que The Real Glow solo lo obtenemos tomado los elementos que nos proporciona nuestra naturaleza. </p>
+            </div>
+            <div>
+                <p class="h4 p-2" data-aos="fade-up">Te invitamos a que vos también disfrutes de encontrar <strong>YOUR <em>REAL</em> GLOW</strong> </p>
+            </div>
+           
+        </div>  
+        <div class="d-flex justify-content-center" data-aos="zoom-out" data-aos-duration="2500">
+            <img src="../assets/img/imagenlogo.jpg" alt="">
+        </div>
+    </main>
+    <footer class="text-center text-white" style="background-color: #FFEEE3;">
+        <div class="container pt-4">
+          <!--Redes Sociales-->
+          <section class="mb-4">
+            <!-- Facebook -->
+            <a
+              class="btn btn-link btn-floating btn-lg text-dark m-1"
+              href="#!"
+              role="button"
+              data-mdb-ripple-color="dark"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+      
+            <!-- Twitter -->
+            <a
+              class="btn btn-link btn-floating btn-lg text-dark m-1"
+              href="#!"
+              role="button"
+              data-mdb-ripple-color="dark"
+              ><i class="fab fa-twitter"></i
+            ></a>
+      
+            <!-- Google -->
+            <a
+              class="btn btn-link btn-floating btn-lg text-dark m-1"
+              href="#!"
+              role="button"
+              data-mdb-ripple-color="dark"
+              ><i class="fab fa-google"></i
+            ></a>
+      
+            <!-- Instagram -->
+            <a
+              class="btn btn-link btn-floating btn-lg text-dark m-1"
+              href="#!"
+              role="button"
+              data-mdb-ripple-color="dark"
+              ><i class="fab fa-instagram"></i
+            ></a>
+      
+            <!-- Linkedin -->
+            <a
+              class="btn btn-link btn-floating btn-lg text-dark m-1"
+              href="#!"
+              role="button"
+              data-mdb-ripple-color="dark"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+         </section>
+        </div>
+        <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);"> © 2022 Copyright:
+          <a class="text-dark text-decoration-none" href="./index.html">The Real Glow</a>
+        </div>
+    </footer>
 
-</main>
-  
-  <aside>
 
-  </aside>
 
-  <footer class="footerindex">
-    <div class="footer-info">
-        <h3> <strong>THE REAL GLOW</strong>, Todos los Derechos Reservados. </h3>
-</div iconosindex> 
-    <div>
-    <div class="pagos">
-        <h3>MEDIOS DE PAGO</h3>
-        <img src="/assets/img/visaicon.webp"visa">
-        <img src="/assets/img/mastercardicon .png" alt="master">
-        <img src="/assets/img/americanexlogo.png" alt="americanex">
-    </div>
-    <div class="redessociales">
-        <h3>REDES SOCIALES</h3>
-        <img src="/assets/img/whatsappicon.png" alt="logowsp">
-        <img src="/assets/img/instaicon.png" alt="instaicon">
-    </div>
-</div>
-<br>
 
-</footer>
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>  
+    <script>
+        AOS.init({
+            easing: 'ease-out-back',
+            duration: 1500
+        });
+    </script>      
 </body>
 </html>
