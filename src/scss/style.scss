@@ -1,0 +1,19 @@
+@import "reset";
+@import "body";
+@import "logo";
+@import "navegador";
+@import "carousel";
+@import "btn";
+@import "footer";
+
+/*/Navbar CSS/*/
+.navss{
+    background-color:#FFDFCC ;
+    display: flex;
+    justify-content: space-between;
+}
+/*/Formulario BS/*/
+.formulario{
+    width: 700px;
+    margin: auto;
+}

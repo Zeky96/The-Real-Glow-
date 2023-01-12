@@ -1,61 +1,54 @@
-*{
-    margin: 0px;
-    padding: 0%;
-    box-sizing: border-box;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+* {
+  margin: 0px;
+  padding: 0%;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
-html, body{
-    overflow-x: hidden;
+html, body {
+  overflow-x: hidden;
+  margin: 0;
 }
-body{
-    margin: 0;
-}
-.main-color{
-    background-color: #FFEEE3
+html .main-color, body .main-color {
+  background-color: #FFEEE3;
 }
 
-/*/Logo/*/
-.logo{
-    width: 85px; ;
-    margin-left: 20px;
+.logo {
+  width: 85px;
+  margin-left: 20px;
 }
 
-/*/Navbar Bootstrap/*/
-.navbar{
-    background-color: #FFEEE3 !important;
+.navbar {
+  background-color: #FFEEE3 !important;
 }
-.navbar-brand{
-    color: black;
-}
-
-/*/Carousel/*/
-.carousel-tarjeta{
-    width: 100%;
+.navbar .navbar-brand {
+  color: black;
 }
 
-/*/Botones Boostrap/*/
-.btn{
-    background-color: #E58435;
-    
+.carousel-tarjeta {
+  width: 100%;
 }
-/*/Footer Bootstrap/*/
-.footer-color{
-    background-color: #FFDFCC;
+
+.btn {
+  background-color: #E58435;
 }
-.footer-letras{
-    color: #E58435;
+
+.footer-color {
+  background-color: #FFDFCC;
+}
+.footer-color .footer-letras {
+  color: #E58435;
 }
 
 /*/Navbar CSS/*/
-.navss{
-    background-color:#FFDFCC ;
-    display: flex;
-    justify-content: space-between;
-}
-/*/Formulario BS/*/
-.formulario{
-    width: 700px;
-    margin: auto;
+.navss {
+  background-color: #FFDFCC;
+  display: flex;
+  justify-content: space-between;
 }
 
+/*/Formulario BS/*/
+.formulario {
+  width: 700px;
+  margin: auto;
+}
