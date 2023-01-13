@@ -39,3 +39,8 @@ html .main-color, body .main-color {
 .footer-color .footer-letras {
   color: #E58435;
 }
+
+.formulario {
+  width: 700px;
+  margin: auto;
+}
