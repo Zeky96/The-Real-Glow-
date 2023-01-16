@@ -1,8 +1,8 @@
+
 .btn{
-    background-color: #E58435;
-    border: 0;
+    @include btn(#E58435,rgb(245, 241, 241));
     &:hover {
-        background-color:#eaa77a  ;
+        background-color: #eaa77a  ;
     }
     }
 
