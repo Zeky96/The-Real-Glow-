@@ -1,5 +1,16 @@
 .btn{
-    @extend %btn;
-    
+    background-color: #E58435;
+    border: 0;
+    &:hover {
+        background-color:#eaa77a  ;
+    }
     }
 
+.btn-index{
+    background-color: #E58435;
+    border: 0;
+    padding: 10px;
+    &:hover {
+        background-color:#eaa77a  ;
+    }
+}

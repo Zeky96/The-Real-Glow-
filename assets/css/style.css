@@ -29,6 +29,23 @@ html .main-color, body .main-color {
   width: 100%;
 }
 
+.btn {
+  background-color: #E58435;
+  border: 0;
+}
+.btn:hover {
+  background-color: #eaa77a;
+}
+
+.btn-index {
+  background-color: #E58435;
+  border: 0;
+  padding: 10px;
+}
+.btn-index:hover {
+  background-color: #eaa77a;
+}
+
 .footer-color {
   background-color: #FFDFCC;
 }
@@ -41,22 +58,22 @@ html .main-color, body .main-color {
   margin: auto;
 }
 
-.card .btn, .btn {
-  background-color: #E58435;
-  border: 0;
-}
-.btn:hover {
-  background-color: #eaa77a;
-}
-
 .card {
   border: 1px solid;
   padding: 10px;
   border-radius: 5px;
   margin: 10px;
   gap: 10px;
-  box-shadow: 0px 5px 10px 5px #E58435;
+  box-shadow: 0px 5px 10px 5px #b76b2d;
 }
+
 .card > img {
   width: 100%;
+}
+.card .btn {
+  background-color: #E58435;
+  border: 0;
+}
+.card .btn:hover {
+  background-color: #eaa77a;
 }

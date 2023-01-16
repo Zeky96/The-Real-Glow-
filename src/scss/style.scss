@@ -8,19 +8,4 @@
 @import "formulario";
 @import "variables";
 @import "extend";
-
-.card{
-    border: 1px solid;
-    padding: 10px;
-    border-radius: 5px;
-    margin: 10px;
-    gap: 10px;
-    box-shadow: $sombra;
-    > img{
-        width: 100%;
-    }
-    .btn{
-        @extend %btn
-    }
-
-}
+@import "card";
