@@ -1,4 +1,5 @@
 .btn{
-    background-color: #E58435;
+    @extend %btn;
     
-}
+    }
+
