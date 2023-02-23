@@ -2,7 +2,7 @@ let opcion = prompt('Elegi que shampoo queres comprar: \n1-Lemon Glow \n2-Rosema
 let iva = 1.21
 switch(opcion){
     case '1': 
-        alert('¡Elegiste un rico shampoo de limon y jojoba! ¡Brillo, suavidad y belleza!');
+        alert('¡Elegiste un genial shampoo de limon y jojoba! ¡Brillo, suavidad y belleza!');
         alert ('Su precio es de $1000+IVA')
         let cantidadLemon = prompt('Ingrese la cantidad de shampoo Lemon Glow que desea comprar:');
         if (cantidadLemon) {
