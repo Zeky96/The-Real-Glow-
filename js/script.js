@@ -1,7 +1,7 @@
 const productos = [
   {
     nombre: 'Lemon Glow',
-    descripcion: 'Rico shampoo de limón y jojoba',
+    descripcion: 'Shampoo de limón y jojoba',
     precio: 1000,
     iva: 0.21,
   },
