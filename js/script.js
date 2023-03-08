@@ -1,52 +1,60 @@
-let seguirComprando = true;
+const productos = [
+  {
+    nombre: 'Lemon Glow',
+    descripcion: 'Rico shampoo de limón y jojoba',
+    precio: 1000,
+    iva: 0.21,
+  },
+  {
+    nombre: 'Rosemary Charm',
+    descripcion: 'Shampoo con canela y aceite de coco',
+    precio: 950,
+    iva: 0.21,
+  },
+  {
+    nombre: 'Power Mint',
+    descripcion: 'Shampoo de menta y aceite de ricino',
+    precio: 1200,
+    iva: 0.21,
+  },
+];
 
-while (seguirComprando) {
-  let opcion = prompt('Elegi que shampoo queres comprar: \n1-Lemon Glow \n2-Rosemary Charm \n3-Power Mint')
-  let iva = 1.21
+let opcion = prompt('Elegí qué shampoo querés comprar: \n1. Lemon Glow \n2. Rosemary Charm \n3. Power Mint');
 
-  switch (opcion) {
-    case '1': 
-      alert('¡Elegiste un genial shampoo de limon y jojoba! ¡Brillo, suavidad y belleza!');
-      alert('Su precio es de $1000+IVA')
-      let cantidadLemon = prompt('Ingrese la cantidad de shampoo Lemon Glow que desea comprar:');
-      if (cantidadLemon) {
-        let precioLemon = 1000; 
-        let totalLemon = precioLemon * cantidadLemon * iva;
-        alert(`El precio total de ${cantidadLemon} unidades de shampoo Lemon Glow es de $${totalLemon}. ¡Gracias por su compra!`);
-      } else {
-        alert('No ingresó una cantidad válida.');
-      }
-      break;
-    case '2':
-      alert('¡Elegiste un shampoo con la mejor canela y aceite de coco! ¡Volumen y brillo asegurados!');
-      alert('Su precio es de $900+IVA')
-      let cantidadRosemary = prompt('Ingrese la cantidad de shampoo Rosemary Charm que desea comprar:');
-      if (cantidadRosemary) {
-        let precioRosemary = 900; 
-        let totalRosemary = precioRosemary * cantidadRosemary * iva;
-        alert(`El precio total de ${cantidadRosemary} unidades de shampoo Rosemary Charm es de $${totalRosemary}. ¡Gracias por su compra!`);
-      } else {
-        alert('No ingresó una cantidad válida.');
-      }
-      break;
-    case '3':
-      alert('¡Elegiste un shampoo de menta y aceite de ricino! ¡Chau grasitud!');
-      alert('Su precio es de $1200+IVA')
-      let cantidadMint = prompt('Ingrese la cantidad de shampoo Power Mint que desea comprar:');
-      if (cantidadMint) {
-        let precioMint = 1200; 
-        let totalMint = precioMint * cantidadMint * iva;
-        alert(`El precio total de ${cantidadMint} unidades de shampoo Power Mint es de $${totalMint}. ¡Gracias por su compra!`);
-      } else {
-        alert('No ingresó una cantidad válida.');
-      }
-      break;
-    default:
-      alert('Elegiste una opción invalida');    
-  }
-
-  let respuesta = prompt('¿Quieres seguir comprando? (S/N)');
-  seguirComprando = (respuesta === 'S');
+switch (opcion) {
+  case '1':
+    alert(`Elegiste ${productos[0].nombre}. ${productos[0].descripcion}!`);
+    let cantidadLemon = prompt('Ingrese la cantidad de shampoo Lemon Glow que desea comprar:');
+    if (cantidadLemon) {
+      let precioLemon = productos[0].precio;
+      let totalLemon = precioLemon * cantidadLemon * (1 + productos[0].iva);
+      alert(`El precio total de ${cantidadLemon} unidades de shampoo ${productos[0].nombre} es de $${totalLemon}. ¡Gracias por su compra!`);
+    } else {
+      alert('No ingresó una cantidad válida.');
+    }
+    break;
+  case '2':
+    alert(`Elegiste ${productos[1].nombre}. ${productos[1].descripcion}!`);
+    let cantidadRosemary = prompt('Ingrese la cantidad de shampoo Rosemary Charm que desea comprar:');
+    if (cantidadRosemary) {
+      let precioRosemary = productos[1].precio;
+      let totalRosemary = precioRosemary * cantidadRosemary * (1 + productos[1].iva);
+      alert(`El precio total de ${cantidadRosemary} unidades de shampoo ${productos[1].nombre} es de $${totalRosemary}. ¡Gracias por su compra!`);
+    } else {
+      alert('No ingresó una cantidad válida.');
+    }
+    break;
+  case '3':
+    alert(`Elegiste ${productos[2].nombre}. ${productos[2].descripcion}!`);
+    let cantidadMint = prompt('Ingrese la cantidad de shampoo Power Mint que desea comprar:');
+    if (cantidadMint) {
+      let precioMint = productos[2].precio;
+      let totalMint = precioMint * cantidadMint * (1 + productos[2].iva);
+      alert(`El precio total de ${cantidadMint} unidades de shampoo ${productos[2].nombre} es de $${totalMint}. ¡Gracias por su compra!`);
+    } else {
+      alert('No ingresó una cantidad válida.');
+    }
+    break;
+  default:
+    alert('Elegiste una opción invalida');
 }
-
-alert('¡Gracias por comprar con nosotros!');
