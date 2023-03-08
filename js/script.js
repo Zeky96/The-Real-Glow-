@@ -3,19 +3,19 @@ const productos = [
     nombre: 'Lemon Glow',
     descripcion: 'Shampoo de limón y jojoba',
     precio: 1000,
-    iva: 0.21,
+    iva: 1.21,
   },
   {
     nombre: 'Rosemary Charm',
     descripcion: 'Shampoo con canela y aceite de coco',
     precio: 950,
-    iva: 0.21,
+    iva: 1.21,
   },
   {
     nombre: 'Power Mint',
     descripcion: 'Shampoo de menta y aceite de ricino',
     precio: 1200,
-    iva: 0.21,
+    iva: 1.21,
   },
 ];
 
