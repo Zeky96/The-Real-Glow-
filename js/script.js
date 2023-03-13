@@ -19,42 +19,41 @@ const productos = [
   },
 ];
 
-let opcion = prompt('Elegí qué shampoo querés comprar: \n1. Lemon Glow \n2. Rosemary Charm \n3. Power Mint');
+// Creamos un nuevo array de objetos con un número de referencia para cada producto
+const productosNumerados = productos.map((producto, indice) => {
+  return { numero: indice + 1, ...producto };
+});
 
-switch (opcion) {
-  case '1':
-    alert(`Elegiste ${productos[0].nombre}. ${productos[0].descripcion}!`);
-    let cantidadLemon = prompt('Ingrese la cantidad de shampoo Lemon Glow que desea comprar:');
-    if (cantidadLemon) {
-      let precioLemon = productos[0].precio;
-      let totalLemon = precioLemon * cantidadLemon * (1 + productos[0].iva);
-      alert(`El precio total de ${cantidadLemon} unidades de shampoo ${productos[0].nombre} es de $${totalLemon}. ¡Gracias por su compra!`);
+let seguirComprando = true;
+let totalCompra = 0;
+
+while (seguirComprando) {
+  let mensaje = 'Elegí qué shampoo querés comprar:\n';
+  for (let i = 0; i < productosNumerados.length; i++) {
+    mensaje += `${productosNumerados[i].numero}. ${productosNumerados[i].nombre}\n`;
+  }
+
+  let opcion = prompt(mensaje);
+  let productoSeleccionado = productosNumerados.find(producto => producto.numero === parseInt(opcion));
+
+  if (productoSeleccionado) {
+    alert(`Elegiste ${productoSeleccionado.nombre}. ${productoSeleccionado.descripcion}!`);
+    let cantidad = prompt(`Ingrese la cantidad de shampoo ${productoSeleccionado.nombre} que desea comprar:`);
+    if (cantidad) {
+      let precio = productoSeleccionado.precio;
+      let total = precio * cantidad * productoSeleccionado.iva;
+      totalCompra += total;
+      alert(`El precio total de ${cantidad} unidades de shampoo ${productoSeleccionado.nombre} es de $${total.toFixed(2)}.`);
+      let respuesta = prompt('¿Desea comprar algo más? (s/n)');
+      seguirComprando = respuesta.toLowerCase() === 's';
     } else {
       alert('No ingresó una cantidad válida.');
     }
-    break;
-  case '2':
-    alert(`Elegiste ${productos[1].nombre}. ${productos[1].descripcion}!`);
-    let cantidadRosemary = prompt('Ingrese la cantidad de shampoo Rosemary Charm que desea comprar:');
-    if (cantidadRosemary) {
-      let precioRosemary = productos[1].precio;
-      let totalRosemary = precioRosemary * cantidadRosemary * (1 + productos[1].iva);
-      alert(`El precio total de ${cantidadRosemary} unidades de shampoo ${productos[1].nombre} es de $${totalRosemary}. ¡Gracias por su compra!`);
-    } else {
-      alert('No ingresó una cantidad válida.');
-    }
-    break;
-  case '3':
-    alert(`Elegiste ${productos[2].nombre}. ${productos[2].descripcion}!`);
-    let cantidadMint = prompt('Ingrese la cantidad de shampoo Power Mint que desea comprar:');
-    if (cantidadMint) {
-      let precioMint = productos[2].precio;
-      let totalMint = precioMint * cantidadMint * (1 + productos[2].iva);
-      alert(`El precio total de ${cantidadMint} unidades de shampoo ${productos[2].nombre} es de $${totalMint}. ¡Gracias por su compra!`);
-    } else {
-      alert('No ingresó una cantidad válida.');
-    }
-    break;
-  default:
-    alert('Elegiste una opción invalida');
+  } else {
+    alert('Elegiste una opción inválida.');
+  }
 }
+
+alert(`Gracias por su compra. El total de la compra es $${totalCompra.toFixed(2)}. ¡Vuelva pronto!`);
+
+
