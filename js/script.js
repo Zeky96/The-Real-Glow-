@@ -19,7 +19,6 @@ const productos = [
   },
 ];
 
-// Creamos un nuevo array de objetos con un número de referencia para cada producto
 const productosNumerados = productos.map((producto, indice) => {
   return { numero: indice + 1, ...producto };
 });
