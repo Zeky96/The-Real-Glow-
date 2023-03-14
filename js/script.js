@@ -1,3 +1,17 @@
+function mostrarOpciones(productos, filtro = '') {
+  let mensaje = '';
+  let opciones = productos;
+
+  if (filtro !== '') {
+    opciones = productos.filter(producto => producto.nombre.toLowerCase().includes(filtro.toLowerCase()));
+  }
+
+  for (let i = 0; i < opciones.length; i++) {
+    mensaje += `${i + 1}. ${opciones[i].nombre}\n`;
+  }
+  return mensaje;
+}
+
 const productos = [
   {
     nombre: 'Lemon Glow',
@@ -19,40 +33,49 @@ const productos = [
   },
 ];
 
-const productosNumerados = productos.map((producto, indice) => {
-  return { numero: indice + 1, ...producto };
-});
-
-let seguirComprando = true;
+let continuarComprando = true;
 let totalCompra = 0;
 
-while (seguirComprando) {
-  let mensaje = 'Elegí qué shampoo querés comprar:\n';
-  for (let i = 0; i < productosNumerados.length; i++) {
-    mensaje += `${productosNumerados[i].numero}. ${productosNumerados[i].nombre}\n`;
-  }
+while (continuarComprando) {
+  let mensaje = mostrarOpciones(productos);
+  mensaje += 'b. Buscar producto\n';
+  mensaje += '4. Finalizar compra\n';
+  let opcion = prompt(`Elegí qué shampoo querés comprar:\n${mensaje}`);
 
-  let opcion = prompt(mensaje);
-  let productoSeleccionado = productosNumerados.find(producto => producto.numero === parseInt(opcion));
+  switch (opcion) {
+    case '1':
+    case '2':
+    case '3':
+      opcion = parseInt(opcion) - 1;
+      alert(`Elegiste un ${productos[opcion].descripcion}!`);
+      let cantidad = prompt(`Ingrese la cantidad de shampoo ${productos[opcion].nombre} que desea comprar:`);
+      if (cantidad) {
+        let precio = productos[opcion].precio;
+        let total = precio * cantidad * productos[opcion].iva;
+        totalCompra += total;
+        alert(`El precio total de ${cantidad} unidades de shampoo ${productos[opcion].nombre} es de $${total}.`);
+      } else {
+        alert('No ingresó una cantidad válida.');
+      }
+      break;
+    case 'b':
+      let busqueda = prompt('Ingrese parte del nombre del producto que desea buscar:');
+      let opcionesFiltradas = mostrarOpciones(productos, busqueda);
+      if (opcionesFiltradas === '') {
+        alert(`No se encontraron productos que coincidan con "${busqueda}".`);
+      } else {
+        let mensaje = `Resultados de la búsqueda:\n${opcionesFiltradas}`;
+        mensaje += '4. Finalizar compra\n';
+        opcion = prompt(`Elegí qué shampoo querés comprar:\n${mensaje}`);
 
-  if (productoSeleccionado) {
-    alert(`Elegiste ${productoSeleccionado.nombre}. ${productoSeleccionado.descripcion}!`);
-    let cantidad = prompt(`Ingrese la cantidad de shampoo ${productoSeleccionado.nombre} que desea comprar:`);
-    if (cantidad) {
-      let precio = productoSeleccionado.precio;
-      let total = precio * cantidad * productoSeleccionado.iva;
-      totalCompra += total;
-      alert(`El precio total de ${cantidad} unidades de shampoo ${productoSeleccionado.nombre} es de $${total.toFixed(2)}.`);
-      let respuesta = prompt('¿Desea comprar algo más? (s/n)');
-      seguirComprando = respuesta.toLowerCase() === 's';
-    } else {
-      alert('No ingresó una cantidad válida.');
-    }
-  } else {
-    alert('Elegiste una opción inválida.');
+      }
+      break;
+    case '4':
+      continuarComprando = false;
+      alert(`¡Gracias por su compra! El total de la compra es de $${totalCompra} ¡Vuelva pronto!` );
+      break;
+    default:
+      alert('Elegiste una opción invalida');
   }
 }
-
-alert(`Gracias por su compra. El total de la compra es $${totalCompra.toFixed(2)}. ¡Vuelva pronto!`);
-
 
