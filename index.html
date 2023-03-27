@@ -62,7 +62,8 @@
             <h1 data-aos="zoom-in" class="titulo-index col-xs-12 col-md-12 pt-4 ps-2 d-flex justify-content-center"><em> The REAL Glow</em></h1>
           </div>
     </header> 
-    <main>  
+    <main> 
+      
         <h2 class="col-xs-12 col-md-12 pt-2 ps-2 d-flex justify-content-center">PRODUCTOS DESTACADOS</h2>
         <div class="padre row justify-content-center">
           <div data-aos="fade-right" class="card col-12 col-md-4 pt-2" style="width: 18rem;">
@@ -107,11 +108,30 @@
                 <div class="card">
                   <img src="./assets/img/shampoox2.jpg" class="card-img-top" alt="opiniones3">
                   <div class="card-body">
-                    <p class="card-text text-center text-black">"La mejor atención. Rápida, eficiente y excelente calidad"</p>
+                    <p class="card-text text-center text-black" > "La mejor atención. Rápida, eficiente y excelente calidad"</p>
                   </div>
                 </div>
               </div>
           </div>
+          <div class="container">
+            <br>
+            <br>
+            <br>
+            <div class="row">
+                <!-- Elementos generados a partir del JSON -->
+                <div id="items" class="col-sm-8 row"></div>
+                <!-- Carrito -->
+                <aside class="col-sm-4">
+                    <h2>Compra lo que desees!!</h2>
+                    <!-- Elementos del carrito -->
+                    <ul id="carrito" class="list-group"></ul>
+                    <hr>
+                    <!-- Precio total -->
+                    <p class="text-right">Total: <span id="total"></span>&euro;</p>
+                    <button id="boton-vaciar" class="btn btn-danger">Vaciar</button>
+                </aside>
+            </div>
+        </div>
       </main> 
       <footer class="footer-general text-center text-white footer-color">
           <div class="container pt-4">

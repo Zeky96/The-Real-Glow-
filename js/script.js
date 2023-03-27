@@ -1,81 +1,170 @@
-function mostrarOpciones(productos, filtro = '') {
-  let mensaje = '';
-  let opciones = productos;
+document.addEventListener('DOMContentLoaded', () => {
 
-  if (filtro !== '') {
-    opciones = productos.filter(producto => producto.nombre.toLowerCase().includes(filtro.toLowerCase()));
-  }
-
-  for (let i = 0; i < opciones.length; i++) {
-    mensaje += `${i + 1}. ${opciones[i].nombre}\n`;
-  }
-  return mensaje;
-}
-
-const productos = [
-  {
-    nombre: 'Lemon Glow',
-    descripcion: 'Shampoo de limón y jojoba',
-    precio: 1000,
-    iva: 1.21,
-  },
-  {
-    nombre: 'Rosemary Charm',
-    descripcion: 'Shampoo con canela y aceite de coco',
-    precio: 950,
-    iva: 1.21,
-  },
-  {
-    nombre: 'Power Mint',
-    descripcion: 'Shampoo de menta y aceite de ricino',
-    precio: 1200,
-    iva: 1.21,
-  },
-];
-
-let continuarComprando = true;
-let totalCompra = 0;
-
-while (continuarComprando) {
-  let mensaje = mostrarOpciones(productos);
-  mensaje += 'b. Buscar producto\n';
-  mensaje += '4. Finalizar compra\n';
-  let opcion = prompt(`Elegí qué shampoo querés comprar:\n${mensaje}`);
-
-  switch (opcion) {
-    case '1':
-    case '2':
-    case '3':
-      opcion = parseInt(opcion) - 1;
-      alert(`Elegiste un ${productos[opcion].descripcion}!`);
-      let cantidad = prompt(`Ingrese la cantidad de shampoo ${productos[opcion].nombre} que desea comprar:`);
-      if (cantidad) {
-        let precio = productos[opcion].precio;
-        let total = precio * cantidad * productos[opcion].iva;
-        totalCompra += total;
-        alert(`El precio total de ${cantidad} unidades de shampoo ${productos[opcion].nombre} es de $${total}.`);
-      } else {
-        alert('No ingresó una cantidad válida.');
+  // Variables
+  const baseDeDatos = [
+      {
+          id: 1,
+          nombre: 'Lemon Glow',
+          precio: 1000,
+          imagen: 'lemonglow.jpg',
+      },
+      {
+          id: 2,
+          nombre: 'Power Mint',
+          precio: 1100,
+          imagen: 'powermint.jpg',
+      },
+      {
+          id: 3,
+          nombre: 'Rosemary Charm',
+          precio: 1100,
+          imagen: 'rosemarycharm.jpg'
+      },
+      {
+          id: 4,
+          nombre: 'Lavender Beauty',
+          precio: 1200,
+          imagen: 'jabonera.jpg',
       }
-      break;
-    case 'b':
-      let busqueda = prompt('Ingrese parte del nombre del producto que desea buscar:');
-      let opcionesFiltradas = mostrarOpciones(productos, busqueda);
-      if (opcionesFiltradas === '') {
-        alert(`No se encontraron productos que coincidan con "${busqueda}".`);
-      } else {
-        let mensaje = `Resultados de la búsqueda:\n${opcionesFiltradas}`;
-        mensaje += '4. Finalizar compra\n';
-        opcion = prompt(`Elegí qué shampoo querés comprar:\n${mensaje}`);
 
-      }
-      break;
-    case '4':
-      continuarComprando = false;
-      alert(`¡Gracias por su compra! El total de la compra es de $${totalCompra} ¡Vuelva pronto!` );
-      break;
-    default:
-      alert('Elegiste una opción invalida');
+  ];
+
+  let carrito = [];
+  const peso = '$';
+  const DOMitems = document.querySelector('#items');
+  const DOMcarrito = document.querySelector('#carrito');
+  const DOMtotal = document.querySelector('#total');
+  const DOMbotonVaciar = document.querySelector('#boton-vaciar');
+  const miLocalStorage = window.localStorage;
+
+  // Funciones
+
+  function renderizarProductos() {
+      baseDeDatos.forEach((info) => {
+          // Estructura
+          const miNodo = document.createElement('div');
+          miNodo.classList.add('card', 'col-sm-4');
+          // Body
+          const miNodoCardBody = document.createElement('div');
+          miNodoCardBody.classList.add('card-body');
+          // Titulo
+          const miNodoTitle = document.createElement('h5');
+          miNodoTitle.classList.add('card-title');
+          miNodoTitle.textContent = info.nombre;
+          // Imagen
+          const miNodoImagen = document.createElement('img');
+          miNodoImagen.classList.add('img-fluid');
+          miNodoImagen.setAttribute('src', info.imagen);
+          // Precio
+          const miNodoPrecio = document.createElement('p');
+          miNodoPrecio.classList.add('card-text');
+          miNodoPrecio.textContent = `${info.precio}${peso}`;
+          // Boton 
+          const miNodoBoton = document.createElement('button');
+          miNodoBoton.classList.add('btn', 'btn-primary');
+          miNodoBoton.textContent = '+';
+          miNodoBoton.setAttribute('marcador', info.id);
+          miNodoBoton.addEventListener('click', anyadirProductoAlCarrito);
+          // Insertamos
+          miNodoCardBody.appendChild(miNodoImagen);
+          miNodoCardBody.appendChild(miNodoTitle);
+          miNodoCardBody.appendChild(miNodoPrecio);
+          miNodoCardBody.appendChild(miNodoBoton);
+          miNodo.appendChild(miNodoCardBody);
+          DOMitems.appendChild(miNodo);
+      });
   }
-}
 
+  /**
+  * Evento para añadir un producto al carrito de la compra
+  */
+  function anyadirProductoAlCarrito(evento) {
+      // Anyadimos el Nodo a nuestro carrito
+      carrito.push(evento.target.getAttribute('marcador'))
+      // Actualizamos el carrito 
+      renderizarCarrito();
+      // Actualizamos el LocalStorage
+      guardarCarritoEnLocalStorage();
+  }
+
+  /**
+  * Dibuja todos los productos guardados en el carrito
+  */
+  function renderizarCarrito() {
+      DOMcarrito.textContent = '';
+      const carritoSinDuplicados = [...new Set(carrito)];
+      carritoSinDuplicados.forEach((item) => {
+          const miItem = baseDeDatos.filter((itemBaseDatos) => {
+              return itemBaseDatos.id === parseInt(item);
+          });
+          // Cantidad de veces que se repite el producto
+          const numeroUnidadesItem = carrito.reduce((total, itemId) => {
+              return itemId === item ? total += 1 : total;
+          }, 0);
+          const miNodo = document.createElement('li');
+          miNodo.classList.add('list-group-item', 'text-right', 'mx-2');
+          miNodo.textContent = `${numeroUnidadesItem} x ${miItem[0].nombre} - ${miItem[0].precio}${peso}`;
+          // Boton de borrar
+          const miBoton = document.createElement('button');
+          miBoton.classList.add('btn', 'btn-danger', 'mx-5');
+          miBoton.textContent = 'X';
+          miBoton.style.marginLeft = '1rem';
+          miBoton.dataset.item = item;
+          miBoton.addEventListener('click', borrarItemCarrito);
+          miNodo.appendChild(miBoton);
+          DOMcarrito.appendChild(miNodo);
+      });
+      DOMtotal.textContent = calcularTotal();
+  }
+
+  /**
+  * Evento para borrar un elemento del carrito
+  */
+  function borrarItemCarrito(evento) {
+      //Conseguir producto ID
+      const id = evento.target.dataset.item;
+      // Borrar todos los productos
+      carrito = carrito.filter((carritoId) => {
+          return carritoId !== id;
+      });
+      renderizarCarrito();
+      guardarCarritoEnLocalStorage();
+
+  }
+
+  function calcularTotal() {
+      return carrito.reduce((total, item) => {
+          const miItem = baseDeDatos.filter((itemBaseDatos) => {
+              return itemBaseDatos.id === parseInt(item);
+          });
+          return total + miItem[0].precio;
+      }, 0).toFixed(2);
+  }
+
+  function vaciarCarrito() {
+
+      carrito = [];
+      renderizarCarrito();
+      localStorage.clear();
+
+  }
+
+  function guardarCarritoEnLocalStorage () {
+      miLocalStorage.setItem('carrito', JSON.stringify(carrito));
+  }
+
+  function cargarCarritoDeLocalStorage () {
+      // Por si hay guardado algo previamente
+      if (miLocalStorage.getItem('carrito') !== null) {
+          carrito = JSON.parse(miLocalStorage.getItem('carrito'));
+      }
+  }
+
+  // Eventos
+  DOMbotonVaciar.addEventListener('click', vaciarCarrito);
+
+
+  cargarCarritoDeLocalStorage();
+  renderizarProductos();
+  renderizarCarrito();
+});
