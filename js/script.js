@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
           // Imagen
           const miNodoImagen = document.createElement('img');
           miNodoImagen.classList.add('img-fluid');
-          miNodoImagen.setAttribute('src', info.imagen);
+          miNodoImagen.setAttribute('img', info.imagen);
           // Precio
           const miNodoPrecio = document.createElement('p');
           miNodoPrecio.classList.add('card-text');
