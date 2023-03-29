@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
           id: 4,
           nombre: 'Lavender Beauty',
           precio: 580,
-          imagen: 'jabonera.jpg',
+          src: 'jabonera.jpg',
       }
 
   ];
