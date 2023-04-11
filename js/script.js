@@ -8,7 +8,7 @@ fetch('https://jsonplaceholder.typicode.com/users/1')
     
     const saludoElemento = document.getElementById('saludos');
     saludoElemento.textContent = `¡Hola, ${nombreUsuario}! Bienvenido/a de nuevo a The Real Glow!.`;
-    document.body.createElement(saludoElemento);
+    document.createElement(saludoElemento);
   })
   .catch(error => {
     console.error('Ocurrió un error al obtener el usuario:', error);
