@@ -1,4 +1,18 @@
 document.addEventListener('DOMContentLoaded', () => {
+  
+fetch('https://jsonplaceholder.typicode.com/users/1') 
+  .then(response => response.json())
+  .then(data => {
+    const nombreUsuario = data.name;
+    
+    const saludoElemento = document.getElementById('saludos');
+    saludoElemento.textContent = `¡Hola, ${nombreUsuario}! Bienvenido/a de nuevo a The Real Glow!.`;
+    document.body.createElement(saludoElemento);
+  })
+  .catch(error => {
+    console.error('Ocurrió un error al obtener el usuario:', error);
+  });
+
 
   // Variables
   const baseDeDatos = [
