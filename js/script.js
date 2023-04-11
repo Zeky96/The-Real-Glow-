@@ -35,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const DOMcarrito = document.querySelector('#carrito');
   const DOMtotal = document.querySelector('#total');
   const DOMbotonVaciar = document.querySelector('#boton-vaciar');
+  const DOMbotonComprar = document.querySelector('#boton-comprar');
   const miLocalStorage = window.localStorage;
 
   // Funciones
@@ -58,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
           // Precio
           const miNodoPrecio = document.createElement('p');
           miNodoPrecio.classList.add('card-text');
-          miNodoPrecio.textContent = `${info.precio}${peso}`;
+          miNodoPrecio.textContent = `${peso}${info.precio}`;
           // Boton 
           const miNodoBoton = document.createElement('button');
           miNodoBoton.classList.add('btn', 'btn-primary');
@@ -79,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
   * Evento para añadir un producto al carrito de la compra
   */
   function anyadirProductoAlCarrito(evento) {
-      // Anyadimos el Nodo a nuestro carrito
+      // Aniadimos el Nodo a nuestro carrito
       carrito.push(evento.target.getAttribute('marcador'))
       // Actualizamos el carrito 
       renderizarCarrito();
@@ -142,12 +143,58 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function vaciarCarrito() {
-
+    const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+          confirmButton: 'btn btn-success',
+          cancelButton: 'btn btn-danger'
+        },
+        buttonsStyling: false
+      })
+      
+      swalWithBootstrapButtons.fire({
+        title: '¿Seguro que deseas vaciar?',
+        text: "No hay vuelta atras!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Si, deseo vaciar!',
+        cancelButtonText: 'Cancelar!',
+        reverseButtons: true
+      }).then((result) => {
+        if (result.isConfirmed) {
+          swalWithBootstrapButtons.fire(
+            'Vaciado!',
+            'Tu carrito se ha vaciado.',
+            'Exito!'
+          )
+        } else if (
+        
+          result.dismiss === Swal.DismissReason.cancel
+        ) {
+          swalWithBootstrapButtons.fire(
+            'Cancelado',
+            'Bien hecho! Mejor compra!',
+            'error'
+          )
+        }
+      })
       carrito = [];
       renderizarCarrito();
       localStorage.clear();
 
   }
+
+  function comprarProductos(){
+    Swal.fire({
+        title: 'Gracias por comprar en The Real Glow!',
+        showClass: {
+          popup: 'animate__animated animate__lightSpeedInLeft',
+        },
+        hideClass: {
+          popup: 'animate__animated animate__fadeOutUp'
+        },
+      })
+  }
+
 
   function guardarCarritoEnLocalStorage () {
       miLocalStorage.setItem('carrito', JSON.stringify(carrito));
@@ -162,9 +209,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Eventos
   DOMbotonVaciar.addEventListener('click', vaciarCarrito);
+  DOMbotonComprar.addEventListener('click', comprarProductos);
 
 
   cargarCarritoDeLocalStorage();
   renderizarProductos();
   renderizarCarrito();
 });
+

@@ -1,0 +1,27 @@
+[
+    {
+        "id": 1,
+        "nombre": "Lemon Glow",
+        "precio": 520,
+        "imagen": "lemonglow.jpg"
+    },
+    {
+        "id": 2,
+        "nombre": "Power Mint",
+        "precio": 580,
+        "imagen": "powermint.jpg"
+    },
+    {
+        "id": 3,
+        "nombre": "Rosemary Charm",
+        "precio": 560,
+        "imagen": "rosemarycharm.jpg"
+    },
+    {
+        "id": 4,
+        "nombre": "Lavender Beauty",
+        "precio": 580,
+        "imagen": "jabonera.jpg"
+    }
+
+]
