@@ -6,25 +6,25 @@ document.addEventListener('DOMContentLoaded', () => {
           id: 1,
           nombre: 'Lemon Glow',
           precio: 520,
-          imagen: 'lemonglow.jpg',
+          imagen: './assets/img/lemonglow.jpg',
       },
       {
           id: 2,
           nombre: 'Power Mint',
           precio: 580,
-          imagen: 'powermint.jpg',
+          imagen: './assets/img/powermint.jpg',
       },
       {
           id: 3,
           nombre: 'Rosemary Charm',
           precio: 560,
-          imagen: 'rosemarycharm.jpg'
+          imagen: './assets/img/rosemarycharn.jpg'
       },
       {
           id: 4,
           nombre: 'Lavender Beauty',
           precio: 580,
-          src: 'jabonera.jpg',
+          imagen: './assets/img/jabonera.jpg',
       }
 
   ];
