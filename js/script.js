@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-  
+
+// Fetch para llamar a un usuario como si ya estuviera logueado
 fetch('https://jsonplaceholder.typicode.com/users/1') 
   .then(response => response.json())
   .then(data => {
